@@ -1,0 +1,192 @@
+/*table related css here*/
+
+.table {
+	table-layout: fixed;
+    thead {
+        th {
+            border-top: none !important;
+			border-bottom: 0.0625rem solid $border !important;
+			position: relative;
+			vertical-align: middle;
+			&.actions-td {
+				width: 70px;
+			}
+			span {
+				&.sort {
+					color: #b2b5b7;
+					font-size: 11px;
+					display: inline-block;
+					margin-left: 2px;
+				}
+			}
+        }
+	}
+	td, th {
+		padding-left: 5px;
+    padding-right: 5px;
+	}
+
+    tbody {
+        tr {
+            td {
+				border-bottom: 0.0625rem solid $border;
+				vertical-align: middle;
+                &.action {
+                    a {
+                        font-size:$font18;
+                        margin: 0 0.3125rem;
+                    }
+				}
+				&.description-td {
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+				&.actions-td {
+					width: 70px;
+				}
+				
+			}
+        }
+    }
+}
+.table-pagination {
+	.plain-select {
+		margin-right: 1.5rem;
+	}
+	.pagination {
+		.page-item{
+			margin: 0 0.125rem;
+			.page-link {
+				border: 0;
+				color: $dark-blue;
+				border-radius: 0.25rem;
+				padding: 0.200rem 0.525rem;
+			}
+			&.active {
+				.page-link {
+					background-color:  $dark-blue;
+					border-color:  $dark-blue;
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+
+
+// Resposnsive tables css
+
+@media only screen and (max-width: 800px) {
+    
+    /* Force table to not be like tables anymore */
+	#no-more-tables table, 
+	#no-more-tables thead, 
+	#no-more-tables tbody, 
+	#no-more-tables th, 
+	#no-more-tables td, 
+	#no-more-tables tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#no-more-tables {
+		.table {
+			margin-bottom: 0;
+		thead  { 
+			tr { 
+				position: absolute;
+				top: -9999px;
+				left: -9999px;
+			}
+		}
+
+		tr { 
+			padding: 0.625rem 0;
+			border:1px solid #e6e2e2;
+			margin-bottom: 15px;
+			border-radius: 2px;
+			background-color: #f4f6f9;
+			th {
+				&.actions-td {
+					width: inherit;
+				}
+			}
+			td { 
+				/* Behave  like a "row" */
+				border: none;
+				border-bottom: 0px solid $border; 
+				position: relative;
+				padding-left: 43%; 
+				text-align:left;
+				padding-top: 0.5rem;
+				padding-bottom: 0.5rem;
+				&:before { 
+					/*Label the data*/
+					content: attr(data-title);
+					/* Now like a table header */
+					position: absolute;
+					/* Top/left values mimic padding */
+					top: 0.5rem;
+					left: 0.375rem;
+					width: 40%; 
+					padding-right: 0.625rem; 
+					white-space: normal;
+					text-align:left;
+					font-weight: bold;
+				}
+				&.amount-text {
+					text-align: left !important;
+				}
+				&.actions-td {
+					width: inherit;
+				}
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	} 
+
+	.table {
+		.actions-td {
+			text-align: left !important;
+			div {
+				justify-content: flex-start !important;
+				a {
+					margin: 0 !important;;
+					margin-right: 0.625rem !important;;
+				}
+			}
+		}
+		.status-td {
+			text-align: left !important;
+		}
+	}
+	.table-pagination {
+		.plain-select {
+			margin-right: 0.5rem;
+		}
+	}
+}
+
+
+@media (min-width: 769px) {
+	.table-responsive-tab {
+		display: block;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		.table {
+			table-layout: auto;
+			tr {
+				th, td {
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+
+}

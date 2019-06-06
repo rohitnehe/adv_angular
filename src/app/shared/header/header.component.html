@@ -1,0 +1,64 @@
+<!-- sidebar should be hide on role base -->
+
+<!-- header start -->
+<header class="header">
+  <div class="header-container">
+    <div class="nav-logo">
+      <!-- <a class="sidenav-fold-toggler" href="javascript:void(0);">
+          <i class="icon-menu"></i>
+      </a> -->
+      <a class="logo" href="javascript:void(0)" title="Logo">
+        <img src="./assets/imgs/logos/grower-logo.svg" alt="Logo">
+      </a>
+    </div>
+    <ul class="nav-right">
+    
+      <li class="hide-on-device setting" ngbDropdown autoClose="outside">
+        <a href="javascript:void(0)" title="Setting" id="fontDropdown" ngbDropdownToggle>
+          <i class="icon-setting" placement="bottom" ngbTooltip="Setting"></i>
+        </a>
+        <ul class="dropdown-menu font-size-btns" ngbDropdownMenu aria-labelledby="fontDropdown">
+          <!-- font size increase and decrease code here -->
+          <li>
+            <button type="button" class="btn increase" placement="bottom" ngbTooltip="Increase Font Size">A +</button>
+            <button type="button" class="btn resetMe" placement="bottom" ngbTooltip="Reset Font Size">A</button>
+            <button type="button" class="btn decrease" placement="bottom" ngbTooltip="Decrease Font Size">A -</button>
+          </li>
+          <!-- font size increase and decrease code end here -->
+        </ul>
+
+      </li>
+      <!-- profile dropdown-menu here -->
+      <li class="user-profile" ngbDropdown>
+        <span class="user-name">James Taylor</span>
+        <a href="javascript:void(0)" class="dropdown-toggle" id="userDropdown" ngbDropdownToggle title="User Profile"
+          placement="left" ngbTooltip="User Profile">
+          <img class="profile-img img-fluid" src="./assets/imgs/avatar/avatar.jpg" alt="User Profile Photograph">
+        </a>
+        <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="userDropdown">
+          <li class="user-name-device">
+            <img class="profile-img img-fluid" src="./assets/imgs/avatar/avatar.jpg" alt="User Profile Photograph">
+            <div class="user-info">
+              <a href="javascript:void(0)" ngbDropdownItem title="User Name"> James Taylor </a>
+              <div class="user-role">Admin</div>
+            </div>
+          </li>
+          <li><a href="javascript:void(0)" routerLink="/profile" ngbDropdownItem> <i class="icon-profile"></i> Profile</a></li>
+          <li><a href="javascript:void(0)" ngbDropdownItem> <i class="icon-envelope"></i> Inbox</a></li>
+          <li class="d-md-none"><a href="javascript:void(0)" ngbDropdownItem> <i class="icon-setting"></i> Setting</a>
+          </li>
+          <li class="d-md-none"><a href="javascript:void(0)" ngbDropdownItem> <i class="icon-question-mark"></i>
+              Help</a></li>
+          <li><a href="javascript:void(0)" ngbDropdownItem><i class="icon-logout"></i> Logout</a>
+          </li>
+        </ul>
+      </li>
+      <!-- <li class="menu-toggle-li">
+        <a class="sidenav-fold-toggler" href="javascript:void(0);">
+          <i class="icon-menu"></i>
+        </a>
+      </li> -->
+    </ul>
+  </div>
+</header>
+<!-- header end -->

@@ -1,0 +1,269 @@
+
+<div class="container-fluid">
+    <!--success message-->
+    <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null" class="sticky-alert">{{ successMessage }}</ngb-alert>
+    <!--success message-->
+    <!-- <h3 class="text-center mb-4"> Orders & Quotes</h3> -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="float-left">Orders & Quotes</h4> 
+            <button class="btn btn-outline btn-outline-primary float-right d-none d-md-block"><i class="icon-excel"></i> Export To Excel</button>
+            <button class="btn btn-outline btn-outline-primary float-right d-none d-md-block"><i class="icon-user"></i> Add New User</button>
+            <div ngbDropdown class="d-inline-block d-sm-block d-md-none sub-list-action">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>  <img class="img-fluid" src="./assets/imgs/three-dots.svg"></button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem><i class="icon-excel"></i> Export To Excel</button>
+                  <button ngbDropdownItem><i class="icon-user"></i> Add New User</button>
+                </div>
+              </div>
+        </div>
+        <div class="card-body">
+            <!--table listing statrt-->
+            <div id="no-more-tables" class="table-responsive-tab">
+                <!-- This id used for responsive table -->
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="cursor">
+                                <div class="d-flex align-items-center"><span>Grower</span> <span class="sort">    &#9660;</span></div>
+                            </th>
+                            <th scope="col" class="cursor">
+                                <div class="d-flex align-items-center"><span>Type</span> <span class="sort"> &#9650; </span>  </div>
+                            </th>
+                            <th scope="col" class="cursor">
+                                <div class="d-flex align-items-center"><span>Order #</span> <span class="sort"> &#9650;  </span></div>
+                            </th>
+                            <th scope="col" class="cursor">
+                                <div class="d-flex align-items-center"><span>PO #</span> <span class="sort">&#9660;  </span></div>
+                            </th>
+                            <th scope="col" class="cursor">
+                                <div class="d-flex align-items-center"><span>Status</span> <span class="sort">&#9660;   </span></div>
+                            </th>
+                            <th scope="col" class="text-center cursor">
+                                <div class="d-flex align-items-center"><span>Description</span> <span class="sort">&#9660; </span></div>
+                            </th>
+                            <th scope="col" class="text-center cursor">
+                                <div class="d-flex align-items-center"><span>Order Date</span> <span class="sort">&#9660; </span></div>
+                            </th>
+                            <th scope="col" class="text-center cursor">
+                                <div class="d-flex align-items-center"><span>Req. Ship Date</span> <span class="sort">&#9660;  </span></div>
+                            </th>
+                            <th scope="col" class="text-center cursor">
+                                <div class="d-flex align-items-center justify-content-end"><span>Amount</span> <span class="sort">&#9660;   </span></div>
+                            </th>
+                            <th scope="col" class="text-center cursor">
+                                <div class="d-flex align-items-center justify-content-end"><span>Load</span> <span class="sort">&#9660; </span></div>
+                            </th>
+                            <th scope="col" class="text-center cursor">
+                                <div class="d-flex align-items-center justify-content-end"><span>Weight</span> <span class="sort">&#9660;  </span></div>
+                            </th>
+                            <th scope="col" class="text-center cursor">
+                                <div class="d-flex align-items-center"><span>Sub. By</span> <span class="sort">&#9660;  </span></div>
+                            </th>
+                            <th scope="col" class="text-center actions-td">
+                                <div class="d-flex align-items-center justify-content-center"><span>Actions</span> </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-title="Grower">Foster Farms</td>
+                            <td data-title="Type">Order</td>
+                            <td data-title="Order #">1000024</td>
+                            <td data-title="PO #">4</td>
+                            <td data-title="Status">Cancelled</td>
+                            <td data-title="Description">Lorem Ipsum</td>
+                            <td data-title="Order Date">05-17-2019</td>
+                            <td data-title="Req. Ship Date">06-06-2019</td>
+                            <td data-title="Amount" class="text-right amount-text">$64050.00</td>
+                            <td data-title="Load" class="text-right amount-text">66368.0000</td>
+                            <td data-title="Weight" class="text-right amount-text">555588.0000</td>
+                            <td data-title="Sub. By">Francis L. Everett</td>
+                            <td data-title="Actions" class="action text-center actions-td">
+                                <div class="d-flex justify-content-center">
+                                    <div ngbDropdown class="d-inline-block sub-list-action">
+                                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle> <img class="img-fluid" src="./assets/imgs/three-dots.svg"></button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                          <button ngbDropdownItem> <i class="icon-view orange"></i> View</button>
+                                          <button ngbDropdownItem  (click)="open(content)"><i class="icon-remove orange" placement="top" ngbTooltip="Delete"></i> Delete</button>
+                                        </div>
+                                      </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-title="Grower">Foster Farms</td>
+                            <td data-title="Type">Order</td>
+                            <td data-title="Order #">1000024</td>
+                            <td data-title="PO #">4</td>
+                            <td data-title="Status">Cancelled</td>
+                            <td data-title="Description">Lorem Ipsum</td>
+                            <td data-title="Order Date">05-17-2019</td>
+                            <td data-title="Req. Ship Date">06-06-2019</td>
+                            <td data-title="Amount" class="text-right amount-text">$64050.00</td>
+                            <td data-title="Load" class="text-right amount-text">66368.0000</td>
+                            <td data-title="Weight" class="text-right amount-text">555588.0000</td>
+                            <td data-title="Sub. By">Francis L. Everett</td>
+                            <td data-title="Actions" class="action text-center actions-td">
+                                <div class="d-flex justify-content-center">
+                                    <div ngbDropdown class="d-inline-block sub-list-action">
+                                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>  <img class="img-fluid" src="./assets/imgs/three-dots.svg"></button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                          <button ngbDropdownItem> <i class="icon-view orange"></i> View</button>
+                                          <button ngbDropdownItem  (click)="open(content)"><i class="icon-remove orange" placement="top" ngbTooltip="Delete"></i> Delete</button>
+                                        </div>
+                                      </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-title="Grower">Foster Farms</td>
+                            <td data-title="Type">Order</td>
+                            <td data-title="Order #">1000024</td>
+                            <td data-title="PO #">4</td>
+                            <td data-title="Status">Cancelled</td>
+                            <td data-title="Description">Lorem Ipsum</td>
+                            <td data-title="Order Date">05-17-2019</td>
+                            <td data-title="Req. Ship Date">06-06-2019</td>
+                            <td data-title="Amount" class="text-right amount-text">$64050.00</td>
+                            <td data-title="Load" class="text-right amount-text">66368.0000</td>
+                            <td data-title="Weight" class="text-right amount-text">555588.0000</td>
+                            <td data-title="Sub. By">Francis L. Everett</td>
+                            <td data-title="Actions" class="action text-center actions-td">
+                                <div class="d-flex justify-content-center">
+                                    <div ngbDropdown class="d-inline-block sub-list-action">
+                                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>  <img class="img-fluid" src="./assets/imgs/three-dots.svg"></button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                          <button ngbDropdownItem> <i class="icon-view orange"></i> View</button>
+                                          <button ngbDropdownItem  (click)="open(content)"><i class="icon-remove orange" placement="top" ngbTooltip="Delete"></i> Delete</button>
+                                        </div>
+                                      </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-title="Grower">Foster Farms</td>
+                            <td data-title="Type">Order</td>
+                            <td data-title="Order #">1000024</td>
+                            <td data-title="PO #">4</td>
+                            <td data-title="Status">Cancelled</td>
+                            <td data-title="Description">Lorem Ipsum</td>
+                            <td data-title="Order Date">05-17-2019</td>
+                            <td data-title="Req. Ship Date">06-06-2019</td>
+                            <td data-title="Amount" class="text-right amount-text">$64050.00</td>
+                            <td data-title="Load" class="text-right amount-text">66368.0000</td>
+                            <td data-title="Weight" class="text-right amount-text">555588.0000</td>
+                            <td data-title="Sub. By">Francis L. Everett</td>
+                            <td data-title="Actions" class="action text-center actions-td">
+                                <div class="d-flex justify-content-center">
+                                    <div ngbDropdown class="d-inline-block sub-list-action">
+                                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>  <img class="img-fluid" src="./assets/imgs/three-dots.svg"></button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                          <button ngbDropdownItem> <i class="icon-view orange"></i> View</button>
+                                          <button ngbDropdownItem  (click)="open(content)"><i class="icon-remove orange" placement="top" ngbTooltip="Delete"></i> Delete</button>
+                                        </div>
+                                      </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-title="Grower">Foster Farms</td>
+                            <td data-title="Type">Order</td>
+                            <td data-title="Order #">1000024</td>
+                            <td data-title="PO #">4</td>
+                            <td data-title="Status">Cancelled</td>
+                            <td data-title="Description">Lorem Ipsum</td>
+                            <td data-title="Order Date">05-17-2019</td>
+                            <td data-title="Req. Ship Date">06-06-2019</td>
+                            <td data-title="Amount" class="text-right amount-text">$64050.00</td>
+                            <td data-title="Load" class="text-right amount-text">66368.0000</td>
+                            <td data-title="Weight" class="text-right amount-text">555588.0000</td>
+                            <td data-title="Sub. By">Francis L. Everett</td>
+                            <td data-title="Actions" class="action text-center actions-td">
+                                <div class="d-flex justify-content-center">
+                                    <div ngbDropdown class="d-inline-block sub-list-action">
+                                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>  <img class="img-fluid" src="./assets/imgs/three-dots.svg"></button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                          <button ngbDropdownItem> <i class="icon-view orange"></i> View</button>
+                                          <button ngbDropdownItem  (click)="open(content)"><i class="icon-remove orange" placement="top" ngbTooltip="Delete"></i> Delete</button>
+                                        </div>
+                                      </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-title="Grower">Foster Farms</td>
+                            <td data-title="Type">Order</td>
+                            <td data-title="Order #">1000024</td>
+                            <td data-title="PO #">4</td>
+                            <td data-title="Status">Cancelled</td>
+                            <td data-title="Description">Lorem Ipsum</td>
+                            <td data-title="Order Date">05-17-2019</td>
+                            <td data-title="Req. Ship Date">06-06-2019</td>
+                            <td data-title="Amount" class="text-right amount-text">$64050.00</td>
+                            <td data-title="Load" class="text-right amount-text">66368.0000</td>
+                            <td data-title="Weight" class="text-right amount-text">555588.0000</td>
+                            <td data-title="Sub. By">Francis L. Everett</td>
+                            <td data-title="Actions" class="action text-center actions-td">
+                                <div class="d-flex justify-content-center">
+                                    <div ngbDropdown class="d-inline-block sub-list-action">
+                                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>  <img class="img-fluid" src="./assets/imgs/three-dots.svg"></button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                          <button ngbDropdownItem> <i class="icon-view orange"></i> View</button>
+                                          <button ngbDropdownItem  (click)="open(content)"><i class="icon-remove orange" placement="top" ngbTooltip="Delete"></i> Delete</button>
+                                        </div>
+                                      </div>
+                                </div>
+                            </td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+                <!-- <div class="d-flex justify-content-between align-items-center table-pagination">
+                    <div class="d-flex align-items-center">
+                        Show <span class="plain-select">
+                            <select class="form-control ml-2 mr-2" id="select3">
+                                <option>10</option>
+                                <option>20</option>
+                                <option>25</option>
+                            </select>
+                        </span>
+                        Entries
+                    </div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="javascript:void(0)" tabindex="-1"><i
+                                        class="icon-left"></i></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="javascript:void(0)">2</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="javascript:void(0)"><i class="icon-right"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div> -->
+                <!--table listing end-->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title"><i class="icon-select"></i> Confirm</h4>
+    </div>
+    <div class="modal-body">
+        <p class="text-center">Are you sure, you want to delete?</p>
+    </div>
+    <div class="modal-footer no-top-border">
+        <button class="btn btn-secondary" (click)="modal.close('Save click')">Cancel</button>
+        <button class="btn btn-primary" (click)="changeSuccessMessage(); modal.close('Save click')">OK</button>
+    </div>
+</ng-template>

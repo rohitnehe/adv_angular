@@ -1,0 +1,55 @@
+<form class="form-signin" [formGroup]="signinFrom" novalidate>
+    <div class="text-center logo">
+        <img src="./assets/imgs/logos/grower-logo.svg" alt="AdvGrower Logo">
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group has-float-label field-with-icon">
+                <i class="icon-user"></i> <input class="form-control" type="text" id="username"
+                    placeholder="Username" formControlName="username">
+                <label for="username">Username</label>
+                <div *ngIf="signinFrom.controls['username'].invalid && (signinFrom.controls['username'].dirty || signinFrom.controls['username'].touched)"
+                    class="error-msg">
+                    <div *ngIf="signinFrom.controls['username'].errors.required">
+                        Username is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group  has-float-label field-with-icon">
+                <i class="icon-key"></i> <input class="form-control" type="password" id="loginPassword"
+                    placeholder="Password" formControlName="password">
+                <label for="loginPassword">Password</label>
+                <div *ngIf="signinFrom.controls['password'].invalid && (signinFrom.controls['password'].dirty || signinFrom.controls['password'].touched)"
+                    class="error-msg">
+                    <div *ngIf="signinFrom.controls['password'].errors.required">
+                        Password is required.
+                    </div>
+                    <div *ngIf="signinFrom.controls['password'].errors.minlength">
+                        Password must be at least 6 characters.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-6 d-flex align-items-center"> <a href="javascript:void(0)"
+                routerLink="/validate-email/forgot-password" title="Unable to log in">Unable to log in?</a></div>
+        <div class="col-6 text-right"> 
+            <!-- <button class="btn btn-lg btn-primary" routerLink="/admin-users">Sign In</button> -->
+            <button class="btn btn-lg btn-primary" (click)="Submit()">Sign In</button>
+        </div>
+       
+    </div>
+    <div class="row mt-4 unable-login-guidelines">
+        <div class="col-12">
+            <div class="alert alert-warning p-2" role="alert">Unable to log in? Please perform any action from below list.</div>
+            <ol>
+                <li>Request Forgot Password and set a new password. </li>
+                <li> Contact AdvGrower Support for help. </li>
+                <li> Wait for 1 hour(s) and try again with the password you know. </li>
+            </ol>
+        </div>
+    </div>
+</form>

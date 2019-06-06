@@ -1,0 +1,66 @@
+ol.progress-tracker {
+    display: table;
+    margin: 0 auto 70px auto;
+    padding: 0;
+    table-layout: fixed;
+    width: 100%;
+
+    li {
+        border-bottom: 5px solid silver;
+        display: table-cell;
+        text-align: center;
+        padding-bottom: 20px;
+        white-space: nowrap;
+        position: relative;
+        cursor: pointer;
+
+        &.done {
+            border-color: #ff9121;
+
+            &:before {
+                background-color: #ff9121;
+                border-color: #ff9121;
+            }
+        }
+
+        &.todo:before {
+            background-color: #fff;
+            color: silver;
+        }
+
+        &:before {
+            font-family: "Font Awesome 5 Free";
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            position: absolute;
+            bottom: -32px;
+            left: 35%;
+            height: 60px;
+            width: 62px;
+            line-height: 54px;
+            border: 2px solid silver;
+            border-radius: 30px;
+        }
+
+        &.employer:before {
+            content: "\f303";
+        }
+
+        &.employee:before {
+            content: "\f0c0";
+        }
+
+        &.plans:before {
+            content: "\f7e6";
+        }
+
+        &.proposal:before {
+            content: "\f085";
+        }
+
+        &.enroll:before {
+            content: "\f164";
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<form class="form-signin" [formGroup]="setupUsernameFrom" novalidate>
+  <div class="text-center logo">
+    <img src="./assets/imgs/logos/logo.svg" alt="Form Fire Logo">
+  </div>
+  <div class="text-center logo">
+    <h4>Set up your Username</h4>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group has-float-label field-with-icon">
+        <i class="icon-user"></i> <input class="form-control" type="text" id="username"
+          placeholder="Username" formControlName="username">
+        <label for="username">Username</label>
+        <div
+          *ngIf="setupUsernameFrom.controls['username'].invalid && (setupUsernameFrom.controls['username'].dirty || setupUsernameFrom.controls['username'].touched)"
+          class="error-msg">
+          <div *ngIf="setupUsernameFrom.controls['username'].errors.required">
+              Username is required.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <button class="btn btn-primary" type="submit" routerLink="/validate-email/setup-password">Continue</button>
+    </div>
+  </div>
+</form>
