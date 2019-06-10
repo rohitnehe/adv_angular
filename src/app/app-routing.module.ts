@@ -13,6 +13,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   {
+    path: 'profile',
+    loadChildren: './modules/profile/profile.module#ProfileModule',
+  },
+  {
     path: 'sample-form',
     component: SampleFormComponent
   },

@@ -22,6 +22,7 @@ export class AuthenticationService {
   }
 
   RefreshToken() {
+    console.log('dsfsffs');
     // Token endpoint & params.
     const tokenEndpoint: string = environment.userServiceUrl + 'api/authentication/refresh';
 

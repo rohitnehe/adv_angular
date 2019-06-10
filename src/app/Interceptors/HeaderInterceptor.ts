@@ -20,7 +20,7 @@ export class HeaderInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const that = this;
         if (req.url.indexOf('authentication/refresh') <= 0) {
-            setTimeout( () => { that.RefreshToken(); }, 100);
+            //setTimeout( () => { that.RefreshToken(); }, 100);
         }
         this.pendingRequests++;
         if (this.pendingRequests >= 1) {
