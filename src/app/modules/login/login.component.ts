@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
       //console.log('loginModel '+this.signinFrom.value);return false;
       this.authService.Authenticate(this.signinFrom.value).subscribe(data => {
         this.response = data;
-        
+        console.log(this.response)
         this.DisableLoginButton(false);
         //this.LoginUser();
       }, (error) => this.LoginErrorCallback(error, that));
