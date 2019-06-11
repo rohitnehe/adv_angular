@@ -19,9 +19,9 @@ export class HeaderInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const that = this;
-        if (req.url.indexOf('authentication/refresh') <= 0) {
-            setTimeout( () => { that.RefreshToken(); }, 100);
-        }
+       // if (req.url.indexOf('authentication/refresh') <= 0) {
+            //setTimeout( () => { that.RefreshToken(); }, 100);
+       // }
         this.pendingRequests++;
         if (this.pendingRequests >= 1) {
             if (this.showLoader(req.url)) {
@@ -32,7 +32,8 @@ export class HeaderInterceptor implements HttpInterceptor {
 
         const dummyrequest = req.clone({
             setHeaders: {
-                Authorization: 'Bearer ' + localStorage.getItem('token')
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
+
             }
         });
 

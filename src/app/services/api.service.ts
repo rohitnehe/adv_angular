@@ -23,9 +23,7 @@ export class ApiService {
       if (method === HttpReqMethod.GET.toString()) {
         return this.httpClient.get<any>(url);
       } else if (method === HttpReqMethod.POST.toString()) {
-        return this.httpClient.post<any>(url, body, {
-          headers: this.getHeaders()
-      });
+        return this.httpClient.post<any>(url, body);
       } else if (method === HttpReqMethod.DELETE.toString()) {
         return this.httpClient.delete<any>(url);
       } else if (method === HttpReqMethod.PUT.toString()) {

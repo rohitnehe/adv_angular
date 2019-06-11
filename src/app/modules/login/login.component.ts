@@ -3,6 +3,10 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
+//import { GlobalSharedService } from '../../services/global-shared.service';
+import { ApiService, HttpReqMethod } from '../../services/api.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +22,7 @@ export class LoginComponent implements OnInit {
   response: any;
 
   constructor(@Inject(DOCUMENT) private document: Document, private fb: FormBuilder, 
-  private authService: AuthenticationService) { 
+  private authService: AuthenticationService, private router: Router, private apiService: ApiService) { 
     this.createForm();
   }
   
@@ -73,9 +77,9 @@ export class LoginComponent implements OnInit {
       //console.log('loginModel '+this.signinFrom.value);return false;
       this.authService.Authenticate(this.signinFrom.value).subscribe(data => {
         this.response = data;
-        
+        //console.log(this.response.data[0].access_token);
         this.DisableLoginButton(false);
-        //this.LoginUser();
+        this.LoginUser();
       }, (error) => this.LoginErrorCallback(error, that));
     } catch (error) {
       console.log('Exception in: login.component.ts - In method: Login. ' + error);
@@ -99,6 +103,22 @@ export class LoginComponent implements OnInit {
   // Disable login Button
   DisableLoginButton(disable: boolean) {
     this.disableLogin = disable;
+  }
+
+  LoginUser() {
+    try {
+      // save token in local storage.
+      this.authService.Store(this.response.data[0].access_token);
+      if (this.response.data[0].access_token == null) {
+        this.router.navigate(['/error']);
+      //  this.globalService.SetRoleChanged(true);
+      } else {
+        this.router.navigate(['/products']);
+      //  this.globalService.SetRoleChanged(true);
+      }
+    } catch (error) {
+      this.apiService.LogError('Exception in: login.component.ts - In method: LoginUser. ' + error);
+    }
   }
   
 }
