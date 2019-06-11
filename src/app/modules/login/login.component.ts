@@ -113,7 +113,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/error']);
       //  this.globalService.SetRoleChanged(true);
       } else {
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/products']);
       //  this.globalService.SetRoleChanged(true);
       }
     } catch (error) {
