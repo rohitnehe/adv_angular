@@ -32,7 +32,7 @@ export class HeaderInterceptor implements HttpInterceptor {
 
         const dummyrequest = req.clone({
             setHeaders: {
-                Authorization: 'Basic ' + localStorage.getItem('token'),
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
 
             }
         });

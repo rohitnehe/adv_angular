@@ -1,3 +1,73 @@
 <p>
   product works!
 </p>
+<div class="col-sm">
+  <div class="form-group table">
+    <tr>
+      <th>
+        Botanical Name
+      </th>
+      <th>
+        Common Name
+      </th>
+      <th>
+        Other Name
+      </th>
+      <th>
+        Product Group1
+      </th>
+      <th>
+        Product Group2
+      </th>
+      <th>
+        Product Group3
+      </th>
+      <th>
+        Product Group4
+      </th>
+      <th>
+        Product Group5
+      </th>
+    </tr>
+    <td>
+      <tr *ngFor="let product of productsList">
+        {{ product.botanicalName }}
+      </tr>
+    </td>
+    <td>
+      <tr *ngFor="let product of productsList">
+        {{ product.commonName }}
+      </tr>
+    </td>
+    <td>
+      <tr *ngFor="let product of productsList">
+        {{ product.otherName }}
+      </tr>
+    </td>
+    <td>
+      <tr *ngFor="let product of productsList">
+        {{ product.productGroup1 }}
+      </tr>
+    </td>
+    <td>
+      <tr *ngFor="let product of productsList">
+        {{ product.productGroup2 }}
+      </tr>
+    </td>
+    <td>
+      <tr *ngFor="let product of productsList">
+        {{ product.productGroup3 }}
+      </tr>
+    </td>
+    <td>
+      <tr *ngFor="let product of productsList">
+        {{ product.productGroup4 }}
+      </tr>
+    </td>
+    <td>
+      <tr *ngFor="let product of productsList">
+        {{ product.productGroup5 }}
+      </tr>
+    </td>
+  </div>
+</div>

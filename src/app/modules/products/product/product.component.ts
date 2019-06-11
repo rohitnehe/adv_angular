@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit {
 
   response: any;
   token: any;
+  productsList = [];
 
   constructor(private apiService: ApiService, private productsService: ProductsService) { }
 
@@ -29,7 +30,17 @@ export class ProductComponent implements OnInit {
     try {
       //console.log('loginModel '+this.signinFrom.value);return false;
       this.productsService.GetProducts().subscribe(data => {
-        this.response = data;
+      //  console.log(data);
+        if (data !== null && data !== undefined) {
+          for (let i = 0, len = data.data.length; i < len; i++) {
+            this.productsList.push({ id: data.data[i].external_id, botanicalName: data.data[i].botanical_name,
+              commonName: data.data[i].common_name, otherName: data.data[i].other_name,
+              productGroup1: data.data[i].productgroup1, productGroup2: data.data[i].productgroup2,
+              productGroup3: data.data[i].productgroup3, productGroup4: data.data[i].productgroup4,
+              productGroup5: data.data[i].productgroup5 });
+          }
+        }
+      //  this.response = data;
 
       }, (error) => this.LoginErrorCallback(error, that));
     } catch (error) {
