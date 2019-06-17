@@ -27,6 +27,11 @@ export class SigninComponent implements OnInit {
     this.document.body.classList.add('login-page-body');
   }
 
+  public Submit()
+  {
+	  return true;
+  }
+  
   ngOnDestroy() {
     this.document.body.classList.remove('login-page-body');
   }
