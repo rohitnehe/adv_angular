@@ -93,7 +93,10 @@
           "configurations": {
             "production": {
               "browserTarget": "grower:build:production"
-            }
+            },
+			"staging": {
+              "browserTarget": "grower:build:staging"
+            }  
           }
         },
         "extract-i18n": {
@@ -147,7 +150,10 @@
           "configurations": {
             "production": {
               "devServerTarget": "grower:serve:production"
-            }
+            },
+			"staging": {
+              "devServerTarget": "grower:serve:staging"
+             }  
           }
         },
         "lint": {
